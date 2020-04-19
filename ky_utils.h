@@ -77,8 +77,6 @@ void simple_checks(struct prob_dist_data T)
   
   delete [] hpo;
   
- 
-
   std::cout << "\nSample size = " << sample_size
 	    << "\n\n***** ***** ***** ***** *****\n\n"
 	    << "The " << nb_chks << " highest probabilies (out of " << T.nb_atoms << ") and their corresponding empirical (observed) frequencies:\n\n";
@@ -281,7 +279,7 @@ void query_user(struct prob_dist_data & T)
       std::cout << "\n\nConcentration parameter = ";
       std::string tmpstr;
       getline(std::cin,tmpstr);
-      double u = std::stol(tmpstr);
+      double u = std::stod(tmpstr);
       if(u<=0.0)
 	{
 	  std::cout << "\n\nconcentration parameter <= 0 --- exit\n";
@@ -306,7 +304,7 @@ void query_user(struct prob_dist_data & T)
 	  norm_const+=T.pmv[i-3];
 	  
 	}
-      NTL::RR tmp_ent=NTL::RR(0.0);
+      
       
       for(long i = 3;i<T.nb_atoms+3;i++)
 	{
@@ -315,8 +313,7 @@ void query_user(struct prob_dist_data & T)
 	  //std::cout << i << " --> " << T->pmv[i] << "\n";
 	  
 	}
-      tmp_ent = tmp_ent/NTL::log(NTL::RR(2.0));
-      std::cout << "Zeta-Dir related truncated prob dist entro = " << tmp_ent << "\n";
+     
     }
   else if(std::stod(choice)==5)
     {
@@ -609,7 +606,7 @@ void which_prob_dist(int case_nb, struct prob_dist_data & T)
 	  norm_const+=T.pmv[i-3];
 	  
 	}
-      NTL::RR tmp_ent=NTL::RR(0.0);
+    
       
       for(long i = 3;i<T.nb_atoms+3;i++)
 	{
@@ -618,8 +615,7 @@ void which_prob_dist(int case_nb, struct prob_dist_data & T)
 	  //std::cout << i << " --> " << T->pmv[i] << "\n";
 	  
 	}
-      tmp_ent = tmp_ent/NTL::log(NTL::RR(2.0));
-      std::cout << "Zeta-Dir related truncated prob dist entro = " << tmp_ent << "\n";
+     
     }
   else if(case_nb==5)
     {
