@@ -2,4 +2,4 @@
 
 This a C++ implementation of an algorithm from Knuth and Yao published in 1976 originally. The algorithm uses a source of unbiased i.i.d. bits to generate a random variable according to a probability distribution stored as a probability vector. It uses the binary expansions of the probability values to create a tree (DDG tree) to generate a random variable. If H denotes the entropy of the given distribution, then the algorith is optimal from an information theoritical point of view as it uses an expected number of bits between H and H + 2.
 
-The code only uses the standard library. The code uses NTL ( https://www.shoup.net/ntl/ ) to compute p-bit accurate probability values.
+The code only uses the standard library. The code uses NTL ( https://www.shoup.net/ntl/ ) to compute truncations up to p bits for the probability values where p is specified by the user and assuming the user knows what it means in theory and in practice.
